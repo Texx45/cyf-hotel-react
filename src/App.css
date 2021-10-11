@@ -2,56 +2,58 @@
   text-align: left;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.App-header {
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  padding: 0.5rem 1rem;
+}
+
+.logo {
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-content {
-  padding-top: 20px;
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.search {
-  padding: 5px 0 20px 0;
-}
-
-tr {
-  color: #5b5757;
-}
-
-.results {
-  padding-top: 15px;
-}
-
-.footer {
-  padding-top: 20px;
-  text-align: center;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
-  width: 18rem;
+  max-width: 350px;
+  min-height: 550px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.card h2 {
+  align-self: center;
+  margin: 1rem;
+}
+
+.page-header {
+  padding-bottom: 1rem;
+}
+
+.table {
+  width: 90vw;
+
+  margin: 2rem auto;
+}
+
+footer {
+  font-size: large;
+  padding: 2rem;
+}
+
+footer ul {
+  list-style-type: none;
 }

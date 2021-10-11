@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 const TableBody = ({ tableBookings }) => {
-  const listBookings = tableBookings.map((guestInfo) => (
+  const listBookings = tableBookings.map(guestInfo => (
     <tr key={guestInfo.id}>
       <td>{guestInfo.id}</td>
       <td>{guestInfo.title}</td>
@@ -28,12 +28,3 @@ const TableBody = ({ tableBookings }) => {
 };
 
 export default TableBody;
-
-// "id": 1,
-// "title": "Mr",
-// "firstName": "John",
-// "surname": "Doe",
-// "email": "johndoe@doe.com",
-// "roomId": 2,
-// "checkInDate": "2017-11-21",
-// "checkOutDate": "2017-11-23"
