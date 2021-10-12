@@ -5,7 +5,6 @@ function Footer({ fakeHotel }) {
     <footer>
       <ul>
         {fakeHotel.map((hotel, i) => {
-          console.log(`Hotel ${i}`);
           return <li key={`Hotel ${i}`}>{hotel}</li>;
         })}
       </ul>
