@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { useState } from "react";
 
-const TableRow = ({ guestInfo }) => {
+const TableRow = ({ guestInfo, updateId }) => {
   const [selected, setSelected] = useState("");
 
   const addClass = () => {
@@ -25,6 +25,14 @@ const TableRow = ({ guestInfo }) => {
           moment(guestInfo.checkInDate),
           "days"
         )}
+      </td>
+      <td>
+        <button
+          onClick={() => updateId(guestInfo.id)}
+          className="btn btn-primary"
+        >
+          Show Profile
+        </button>
       </td>
     </tr>
   );

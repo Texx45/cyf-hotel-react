@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import moment from "moment";
+// import moment from "moment";
 import TableRow from "./TableRow";
 
-const TableBody = ({ tableBookings }) => {
+const TableBody = ({ tableBookings, updateId }) => {
   const listBookings = tableBookings.map(guestInfo => (
-    <TableRow key={guestInfo.id} guestInfo={guestInfo} />
+    <TableRow key={guestInfo.id} updateId={updateId} guestInfo={guestInfo} />
   ));
   return (
     <>
