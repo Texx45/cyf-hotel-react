@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+//* STYLES
+import "./CustomerProfile.css";
 
 const CustomerProfile = ({ id }) => {
   const [customerInfo, setCustomerInfo] = useState({});
@@ -14,8 +16,8 @@ const CustomerProfile = ({ id }) => {
     }
   }, [id]);
   return (
-    <div>
-      <h1>Customer Profile: {id}</h1>
+    <div className="customer-container">
+      {/* <h1>Customer Profile: {id}</h1> */}
 
       <ul>
         <li>{customerInfo?.id}</li>

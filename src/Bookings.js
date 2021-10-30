@@ -17,38 +17,56 @@ const headingItems = [
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
-  //! 19a Implement the search method 👇
   const search = searchVal => {
-    // console.log("Search Val:", searchVal);
     const filteredBooking = bookings.filter(booking => {
       return booking.firstName === searchVal || booking.surname === searchVal;
     });
-    //* 19. This function gets passed through to Search.js 👆
 
     console.log({ filteredBooking });
     setBookings(filteredBooking);
   };
 
-  //! Fetch data from the API 👇
   useEffect(() => {
-    console.log("fetching from CYF");
-
-    fetch("https://cyf-react.glitch.me")
-      .then(res => res.json())
-      .then(data => {
-        console.log("Fetched Data:", data); //! Fetched Data log
-        setBookings(data);
-      });
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://cyf-react.glitch.me/delayed");
+        if (!res.ok) {
+          throw new Error("response error");
+        }
+        const jsonData = await res.json();
+        setBookings(jsonData);
+        setIsLoading(false);
+        setIsError(false);
+      } catch (err) {
+        console.log(err.name);
+        setIsError(true);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
-    <div className="App-content">
+    <section className="App-content">
       <div className="container">
         <Search search={search} />
-        <SearchResults bookings={bookings} headingTitles={headingItems} />
+        {isLoading && (
+          <div className="loading-message">
+            <h1>Loading please wait...</h1>
+          </div>
+        )}
+        {isError ? (
+          <div className="error-message">
+            <h1>Some error message...</h1>
+          </div>
+        ) : (
+          <SearchResults bookings={bookings} headingTitles={headingItems} />
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -24,3 +24,9 @@ body {
 .search-row input {
   margin-right: 10px;
 }
+
+.loading-message {
+  padding: 3rem;
+  color: red;
+  text-align: center;
+}
